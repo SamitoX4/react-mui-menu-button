@@ -1,6 +1,6 @@
 {
   "name": "react-mui-menu-button",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Menu recursivo con N niveles para React con Material-UI",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
