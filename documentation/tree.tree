@@ -1,0 +1,23 @@
+src/
+└── dropdown/
+    ├── core/
+    │   ├── context/
+    │   │   └── DropdownContext.tsx      # Context Provider + UI helpers (LoadingState, EmptyState). Combina lógica de estado con componentes de UI estáticos.
+    │   ├── hooks/                       # Todos los hooks personalizados. Cada hook contiene funciones vacías pero comentadas que definen el comportamiento esperado.
+    │   │   ├── index.ts                # Archivo barril que exporta todos los hooks.
+    │   │   ├── useDropdown.ts          # Hook principal que orquesta los submódulos. Coordina estado, hover, click outside, navegación y teclado.
+    │   │   ├── useDropdownState.ts     # Hook exclusivo para gestionar estado local (isOpen, activePath). Solo lógica de estado.
+    │   │   ├── useHover.ts            # Hook que maneja interacciones por hover (apertura/cierre con delay, activación de submenús).
+    │   │   ├── useClickOutside.ts     # Hook que escucha clics fuera del componente y cierra el menú.
+    │   │   ├── useScroll.ts           # Hook que provee funciones de scroll suave (scrollToElement, scrollToTop).
+    │   │   ├── useKeyboardNavigation.ts # Hook que implementa navegación por teclado (flechas, enter, escape).
+    │   │   └── useItemNavigation.ts   # Hook que centraliza la lógica de navegación (click en items, construcción de URLs, obtención de rutas).
+    │   └── types.ts                   # Definiciones de TypeScript. Interfaces y tipos compartidos. No contiene lógica ni UI.
+    ├── data/
+    │   └── menuData.tsx              # Datos de ejemplo (mock) para el menú. Exporta un array de MenuItem. Solo datos, sin lógica.
+    ├── ui/
+    │   ├── DropdownContent.tsx       # Componente UI que renderiza el contenido del menú (Paper, List). Solo presentación. Usa contexto.
+    │   ├── DropdownTrigger.tsx       # Componente UI que renderiza el botón disparador. Solo presentación. Usa contexto.
+    │   └── MenuItemComponent.tsx    # Componente UI recursivo para cada item. Renderiza enlaces o botones, iconos y submenús. Solo presentación. Usa contexto.
+    ├── DropdownWithSubmenu.tsx      # Componente compuesto (wrapper) que integra DropdownMenu, DropdownTrigger y DropdownContent. Agrupa y pasa props. Contiene UI y lógica de composición.
+    └── index.ts                    # Archivo barril de entrada. Exporta todos los componentes públicos y tipos. Solo exportaciones.

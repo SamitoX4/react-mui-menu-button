@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis técnico - Recursive Dropdown MUI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9fafc;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px -12px rgba(0,0,0,0.1);
+            padding: 2.5rem 2rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: #0f172a;
+            border-left: 6px solid #3b82f6;
+            padding-left: 1.2rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 2.2rem 0 1rem 0;
+            color: #1e293b;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 1.8rem 0 0.8rem 0;
+            color: #334155;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: #1e293b;
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem 1rem;
+            border-bottom: 2px solid #cbd5e1;
+        }
+
+        td {
+            padding: 1rem 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #dbeafe;
+            color: #1e40af;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.25rem 0.8rem;
+            border-radius: 20px;
+            margin-right: 0.5rem;
+        }
+
+        ul, ol {
+            margin: 0.8rem 0 1.2rem 1.8rem;
+        }
+
+        li {
+            margin-bottom: 0.4rem;
+        }
+
+        .principle-card {
+            background-color: #f8fafc;
+            border-left: 4px solid #3b82f6;
+            padding: 1.2rem 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+        }
+
+        .principle-card strong {
+            color: #0f172a;
+            font-size: 1.1rem;
+        }
+
+        .structure-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+
+        .structure-item {
+            background: #f1f5f9;
+            border-radius: 16px;
+            padding: 1.2rem 1rem;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            transition: all 0.2s ease;
+        }
+
+        .structure-item:hover {
+            background: #e0f2fe;
+            transform: translateY(-2px);
+        }
+
+        .structure-item span {
+            display: block;
+            font-size: 0.9rem;
+            color: #475569;
+            margin-top: 0.3rem;
+            font-weight: normal;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e2e8f0;
+            margin: 2rem 0;
+        }
+
+        .footer-note {
+            background-color: #f1f5f9;
+            border-radius: 16px;
+            padding: 1.2rem 2rem;
+            text-align: center;
+            color: #475569;
+            font-size: 0.95rem;
+            margin-top: 2.5rem;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                padding: 1.5rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            th {
+                display: none;
+            }
+            td {
+                display: block;
+                padding: 0.8rem 1rem;
+                border: none;
+                border-bottom: 1px solid #e2e8f0;
+                position: relative;
+                padding-left: 40%;
+            }
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 1rem;
+                width: 35%;
+                font-weight: 600;
+                color: #1e293b;
+            }
+            tr {
+                margin-bottom: 1.5rem;
+                border: 1px solid #e2e8f0;
+                border-radius: 16px;
+                overflow: hidden;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧠 Análisis técnico</h1>
+        <p style="font-size: 1.1rem; color: #475569;">Recursive Dropdown MUI — Patrones, buenas prácticas y principios SOLID</p>
+
+        <!-- Tabla de patrones de diseño -->
+        <h2>🧩 Patrones de diseño identificados</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Patrón Moderno</th>
+                    <th>Patrón Clásico Equivalente</th>
+                    <th>Aplicación en el proyecto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Patrón Moderno"><span class="badge">Custom Hooks</span></td>
+                    <td data-label="Equivalente Clásico"><em>Estrategia (Strategy)</em></td>
+                    <td data-label="Aplicación">Encapsulan algoritmos específicos (hover, click outside, scroll, teclado, navegación) que pueden intercambiarse o combinarse.</td>
+                </tr>
+                <tr>
+                    <td data-label="Patrón Moderno"><span class="badge">Context API</span></td>
+                    <td data-label="Equivalente Clásico"><em>Singleton</em></td>
+                    <td data-label="Aplicación">El <code>DropdownContext</code> provee una única instancia del estado y funciones compartidas a toda la jerarquía de componentes.</td>
+                </tr>
+                <tr>
+                    <td data-label="Patrón Moderno"><span class="badge">Compound Components</span></td>
+                    <td data-label="Equivalente Clásico"><em>Composite</em></td>
+                    <td data-label="Aplicación"><code>DropdownMenu</code>, <code>DropdownTrigger</code> y <code>DropdownContent</code> trabajan juntos formando una estructura de árbol.</td>
+                </tr>
+                <tr>
+                    <td data-label="Patrón Moderno"><span class="badge">Render Props</span></td>
+                    <td data-label="Equivalente Clásico"><em>Estrategia (Strategy)</em></td>
+                    <td data-label="Aplicación">Las props <code>renderTrigger</code>, <code>renderItem</code> y <code>renderSubmenu</code> permiten inyectar comportamiento de renderizado.</td>
+                </tr>
+                <tr>
+                    <td data-label="Patrón Moderno"><span class="badge">Controlled / Uncontrolled</span></td>
+                    <td data-label="Equivalente Clásico"><em>Estado (State)</em></td>
+                    <td data-label="Aplicación">El componente puede ser controlado externamente (prop <code>open</code>) o manejar su propio estado (<code>defaultOpen</code>).</td>
+                </tr>
+                <tr>
+                    <td data-label="Patrón Moderno"><span class="badge">Factory (variante)</span></td>
+                    <td data-label="Equivalente Clásico"><em>Método Fábrica (Factory Method)</em></td>
+                    <td data-label="Aplicación">Las variantes (<code>variant</code> y <code>customTheme</code>) actúan como fábricas que generan diferentes configuraciones de estilo.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Buenas prácticas -->
+        <h2>✅ Buenas prácticas implementadas</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+            <div style="background: #f8fafc; padding: 1.2rem; border-radius: 16px;">
+                <strong>🧩 Separación de responsabilidades</strong>
+                <p style="margin-top: 0.5rem; font-size: 0.95rem;">Lógica en hooks, UI en componentes presentacionales. Facilita testing y mantenimiento.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 1.2rem; border-radius: 16px;">
+                <strong>🔷 TypeScript</strong>
+                <p style="margin-top: 0.5rem; font-size: 0.95rem;">Tipado fuerte en props, estado y contexto. Mejora DX y previene errores.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 1.2rem; border-radius: 16px;">
+                <strong>⚛️ Composición sobre herencia</strong>
+                <p style="margin-top: 0.5rem; font-size: 0.95rem;">Hooks y componentes funcionales, sin clases.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 1.2rem; border-radius: 16px;">
+                <strong>♿ Accesibilidad</strong>
+                <p style="margin-top: 0.5rem; font-size: 0.95rem;">Atributos ARIA, navegación por teclado.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 1.2rem; border-radius: 16px;">
+                <strong>⚡ Optimización</strong>
+                <p style="margin-top: 0.5rem; font-size: 0.95rem;">Uso de <code>useCallback</code> y <code>useMemo</code> para evitar renders innecesarios.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 1.2rem; border-radius: 16px;">
+                <strong>📦 Default props modernas</strong>
+                <p style="margin-top: 0.5rem; font-size: 0.95rem;">Inicialización en la firma de la función.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 1.2rem; border-radius: 16px;">
+                <strong>🔄 Controlado/No controlado</strong>
+                <p style="margin-top: 0.5rem; font-size: 0.95rem;">Soporte para ambos modos.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 1.2rem; border-radius: 16px;">
+                <strong>🧭 Integración con React Router</strong>
+                <p style="margin-top: 0.5rem; font-size: 0.95rem;">Aislada en <code>useItemNavigation</code>, desacoplada del resto.</p>
+            </div>
+            <div style="background: #f8fafc; padding: 1.2rem; border-radius: 16px;">
+                <strong>📝 Documentación en código</strong>
+                <p style="margin-top: 0.5rem; font-size: 0.95rem;">Comentarios en español detallando responsabilidades.</p>
+            </div>
+        </div>
+
+        <!-- Principios SOLID -->
+        <h2>🏗️ Principios SOLID aplicados</h2>
+        <div class="principle-card">
+            <strong>S – Single Responsibility</strong>
+            <p>Cada hook tiene una única responsabilidad: <code>useHover</code> (hover), <code>useClickOutside</code> (clics fuera), <code>useItemNavigation</code> (navegación), etc. Los componentes UI solo renderizan. El contexto solo provee valores.</p>
+        </div>
+        <div class="principle-card">
+            <strong>O – Open/Closed</strong>
+            <p>El componente está abierto a extensión mediante props como <code>renderItem</code>, <code>variant</code>, <code>customTheme</code>, pero cerrado a modificaciones directas en su núcleo.</p>
+        </div>
+        <div class="principle-card">
+            <strong>L – Liskov Substitution</strong>
+            <p>No se utiliza herencia, pero los componentes que consumen el contexto son intercambiables siempre que respeten el contrato del contexto.</p>
+        </div>
+        <div class="principle-card">
+            <strong>I – Interface Segregation</strong>
+            <p>El contexto expone una interfaz amplia, pero los hooks internos tienen interfaces pequeñas y específicas. Los consumidores acceden solo a lo que necesitan.</p>
+        </div>
+        <div class="principle-card">
+            <strong>D – Dependency Inversion</strong>
+            <p>Los módulos de alto nivel (<code>DropdownMenu</code>) dependen de abstracciones (hooks) en lugar de implementaciones concretas. Las dependencias externas (React Router) se inyectan a través de hooks.</p>
+        </div>
+
+        <!-- Estructura y organización -->
+        <h2>📦 Estructura y organización</h2>
+        <div class="structure-grid">
+            <div class="structure-item">
+                core/<span>lógica y tipos</span>
+            </div>
+            <div class="structure-item">
+                ui/<span>componentes presentacionales</span>
+            </div>
+            <div class="structure-item">
+                data/<span>datos de ejemplo</span>
+            </div>
+            <div class="structure-item">
+                index.ts<span>exportaciones públicas</span>
+            </div>
+        </div>
+        <p style="margin-top: 0.5rem;"><span class="badge">Arquitectura por capas</span> <span class="badge">Archivo barril</span> <span class="badge">Hooks modulares</span></p>
+
+        <!-- Consideraciones adicionales -->
+        <h2>🧪 Consideraciones adicionales</h2>
+        <ul>
+            <li><strong>Testabilidad:</strong> La lógica en hooks permite pruebas unitarias aisladas con Jest y React Testing Library.</li>
+            <li><strong>Reutilización:</strong> Los hooks pueden extraerse y compartirse entre proyectos.</li>
+            <li><strong>Escalabilidad:</strong> La arquitectura permite agregar nuevas funcionalidades sin afectar las existentes.</li>
+        </ul>
+
+        <hr />
+
+        <div class="footer-note">
+            ✅ El proyecto demuestra un sólido entendimiento de los patrones modernos de React, buenas prácticas de desarrollo y una clara aplicación de los principios SOLID, lo que lo hace mantenible, extensible y de alta calidad.
+        </div>
+    </div>
+</body>
+</html>
