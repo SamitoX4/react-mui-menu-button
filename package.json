@@ -58,10 +58,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/SamitoX4/recursive-dropdown-mui"
+    "url": "https://github.com/SamitoX4/react-mui-menu-button"
   },
   "bugs": {
-    "url": "https://github.com/SamitoX4/recursive-dropdown-mui/issues"
+    "url": "https://github.com/SamitoX4/react-mui-menu-button/issues"
   },
-  "homepage": "https://github.com/SamitoX4/recursive-dropdown-mui#readme"
+  "homepage": "https://github.com/SamitoX4/react-mui-menu-button#readme"
 }
