@@ -40,7 +40,7 @@ Este paquete espera que tu proyecto ya tenga instalados:
 ## 🚀 Uso básico
 
 ```tsx
-import { DropdownWithSubmenu } from "rreact-mui-menu-button";
+import { DropdownWithSubmenu } from "react-mui-menu-button";
 import { menuItems } from "./menuData"; // tu array de MenuItem
 
 function App() {
