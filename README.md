@@ -1,4 +1,4 @@
-# Recursive Dropdown MUI
+# React Menu Button MUI
 
 [![npm version](https://badge.fury.io/js/react-mui-menu-button.svg)](https://www.npmjs.com/package/react-mui-menu-button)
 
@@ -19,11 +19,11 @@ navegación, scroll suave y total personalización. Construido sobre
 ## 📦 Instalación
 
 ```bash
-npm install recursive-dropdown-mui
+npm install react-mui-menu-button
 # o
-yarn add recursive-dropdown-mui
+yarn add react-mui-menu-button
 # o
-pnpm add recursive-dropdown-mui
+pnpm add react-mui-menu-button
 ```
 
 ### Dependencias requeridas
@@ -40,7 +40,7 @@ Este paquete espera que tu proyecto ya tenga instalados:
 ## 🚀 Uso básico
 
 ```tsx
-import { DropdownWithSubmenu } from "recursive-dropdown-mui";
+import { DropdownWithSubmenu } from "rreact-mui-menu-button";
 import { menuItems } from "./menuData"; // tu array de MenuItem
 
 function App() {
@@ -76,7 +76,7 @@ interface MenuItem {
 ## 🧱 Ejemplo rápido de estructura **menuItems**
 
 ```tsx
-import type { MenuItem } from "recursive-dropdown-mui";
+import type { MenuItem } from "react-mui-menu-button";
 import {
   Code as CodeIcon,
   GitHub as GitHubIcon,
