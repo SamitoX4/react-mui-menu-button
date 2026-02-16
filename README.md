@@ -1,5 +1,7 @@
 # Recursive Dropdown MUI
 
+[![npm version](https://badge.fury.io/js/react-mui-menu-button.svg)](https://www.npmjs.com/package/react-mui-menu-button)
+
 Menú desplegable recursivo con soporte para múltiples niveles,
 navegación, scroll suave y total personalización. Construido sobre
 **Material UI** y **React Router**.
