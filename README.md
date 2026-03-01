@@ -2,35 +2,33 @@
 
 [![npm version](https://badge.fury.io/js/react-mui-menu-button.svg)](https://www.npmjs.com/package/react-mui-menu-button)
 
-Menú desplegable recursivo con soporte para múltiples niveles,
-navegación, scroll suave y total personalización. Construido sobre
-**Material UI** y **React Router**.
+Recursive dropdown menu with support for multiple levels, navigation, smooth scrolling, and full customization. Built on **Material UI** and **React Router**.
 
 ---
 
-## Componente para su uso en dos temas
+## Component for use in two themes
 
-| Modo claro                                                                                        | Modo oscuro                                                                                      |
+| Light Mode | Dark Mode |
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| ![Menú blanco](https://cdn.jsdelivr.net/gh/SamitoX4/react-mui-menu-button@master/white_menu.png) | ![Menú negro](https://cdn.jsdelivr.net/gh/SamitoX4/react-mui-menu-button@master/black_menu.png) |
+| ![White Menu](https://cdn.jsdelivr.net/gh/SamitoX4/react-mui-menu-button@master/white_menu.png) | ![Black Menu](https://cdn.jsdelivr.net/gh/SamitoX4/react-mui-menu-button@master/black_menu.png) |
 
 ---
 
-## 📦 Instalación
+## 📦 Installation
 
 ```bash
 npm install react-mui-menu-button
-# o
+# or
 yarn add react-mui-menu-button
-# o
+# or
 pnpm add react-mui-menu-button
 ```
 
-### Dependencias necesarias (peer dependencies)
+### Required dependencies (peer dependencies)
 
-Asegúrate de tener instaladas las siguientes librerías en tu proyecto:
+Make sure the following libraries are installed in your project:
 
-``` txt
+```txt
 react >= 17.0.0
 react-dom >= 17.0.0
 @mui/material >= 5.0.0
@@ -42,43 +40,41 @@ react-router-dom >= 6.0.0
 
 ---
 
-## 🚀 Uso básico
+## 🚀 Basic Usage
 
 ```tsx
 import { DropdownWithSubmenu } from "react-mui-menu-button";
-import { menuItems } from "./menuData"; // tu array de MenuItem
+import { menuItems } from "./menuData"; // your MenuItem array
 
 function App() {
-  return <DropdownWithSubmenu menuItems={menuItems} triggerText="Explorar" />;
+  return <DropdownWithSubmenu menuItems={menuItems} triggerText="Explore" />;
 }
 ```
 
 ---
 
-## 📘 Estructura de datos (MenuItem)
+## 📘 Data Structure (MenuItem)
 
-Cada ítem del menú sigue la interfaz:
+Each menu item follows the interface:
 
 ```ts
 interface MenuItem {
-  label: string; // Texto visible
-  href?: string; // Ruta de navegación (React Router)
-  hash?: string; // Ancla para scroll interno (sin #)
-  icon: React.ReactNode; // Icono (elemento JSX)
-  children?: MenuItem[]; // Subítems anidados
+  label: string;          // Visible text
+  href?: string;          // Navigation route (React Router)
+  hash?: string;          // Internal scroll anchor (without #)
+  icon: React.ReactNode;  // Icon (JSX element)
+  children?: MenuItem[];  // Nested sub-items
 }
 ```
 
-- ✅ Puedes combinar `href` y `hash`.
-- ✅ Si solo usas `hash`, se tomará el `href` del ancestro más cercano
-  como base.
-- ✅ Ítems sin `href/hash` y sin hijos → no hacen nada al hacer clic.
-- ✅ Ítems sin `href/hash` pero con hijos → expanden/colapsan el
-  submenú.
+- ✅ You can combine `href` and `hash`.
+- ✅ If you only use `hash`, the nearest ancestor's `href` will be used as the base.
+- ✅ Items without `href/hash` and without children → do nothing when clicked.
+- ✅ Items without `href/hash` but with children → expand/collapse the submenu.
 
 ---
 
-## 🧱 Ejemplo rápido de estructura **menuItems**
+## 🧱 Quick **menuItems** Structure Example
 
 ```tsx
 import type { MenuItem } from "react-mui-menu-button";
@@ -92,12 +88,12 @@ import {
 
 export const menuItems: MenuItem[] = [
   {
-    label: "Portafolio Técnico",
+    label: "Technical Portfolio",
     href: "/portfolio",
     icon: <CodeIcon />,
     children: [
       {
-        label: "Proyectos Open Source",
+        label: "Open Source Projects",
         hash: "open-source",
         icon: <GitHubIcon />,
         children: [
@@ -107,12 +103,12 @@ export const menuItems: MenuItem[] = [
             icon: <CodeIcon />,
             children: [
               {
-                label: "Componentes Avanzados",
+                label: "Advanced Components",
                 hash: "advanced-components",
                 icon: <CodeIcon />,
               },
               {
-                label: "Hooks Personalizados",
+                label: "Custom Hooks",
                 hash: "custom-hooks",
                 icon: <CodeIcon />,
               },
@@ -131,63 +127,63 @@ export const menuItems: MenuItem[] = [
         ],
       },
       {
-        label: "Demos Interactivas",
+        label: "Interactive Demos",
         hash: "demos",
         icon: <CodeIcon />,
         children: [
           {
-            label: "Animaciones Web",
+            label: "Web Animations",
             hash: "web-animations",
             icon: <CodeIcon />,
           },
           {
-            label: "APIs REST",
+            label: "REST APIs",
             hash: "rest-apis",
             icon: <CodeIcon />,
           },
         ],
       },
       {
-        label: "Casos de Estudio",
+        label: "Case Studies",
         hash: "case-studies",
         icon: <ArticleIcon />,
       },
       {
-        label: "Repositorios GitHub",
+        label: "GitHub Repositories",
         hash: "repositories",
         icon: <GitHubIcon />,
       },
     ],
   },
   {
-    label: "Emprendimientos",
+    label: "Ventures",
     href: "/ventures",
     icon: <BusinessIcon />,
     children: [
       {
-        label: "Puertas & Portones",
+        label: "Doors & Gates",
         hash: "doors-gates",
         icon: <BusinessIcon />,
         children: [
           {
-            label: "Modelos Estándar",
+            label: "Standard Models",
             hash: "standard-models",
             icon: <BusinessIcon />,
           },
           {
-            label: "Medidas Personalizadas",
+            label: "Custom Sizes",
             hash: "custom-measures",
             icon: <BusinessIcon />,
           },
         ],
       },
       {
-        label: "Catálogo de Productos",
+        label: "Product Catalog",
         hash: "catalog",
         icon: <BusinessIcon />,
       },
       {
-        label: "Diseños Personalizados",
+        label: "Custom Designs",
         hash: "designs",
         icon: <BusinessIcon />,
       },
@@ -199,17 +195,17 @@ export const menuItems: MenuItem[] = [
     icon: <ArticleIcon />,
   },
   {
-    label: "Perfil",
+    label: "Profile",
     href: "/",
     icon: <PersonIcon />,
     children: [
       {
-        label: "Stack Tecnológico",
+        label: "Technology Stack",
         hash: "technology-stack",
         icon: <CodeIcon />,
       },
       {
-        label: "Experiencia Laboral",
+        label: "Work Experience",
         hash: "experience",
         icon: <PersonIcon />,
       },
@@ -220,109 +216,107 @@ export const menuItems: MenuItem[] = [
 
 ---
 
-## 🧩 Props principales
+## 🧩 Main Props
 
-### 1. Datos y contenido
+### 1. Data and Content
 
-| Prop        | Tipo                      | Default          | Descripción                           |
+| Prop        | Type                      | Default          | Description                           |
 | ----------- | ------------------------- | ---------------- | ------------------------------------- |
-| menuItems   | MenuItem[]                | defaultMenuItems | Array de ítems del menú               |
-| loading     | boolean                   | false            | Muestra estado de carga               |
-| loadingText | string                    | "Cargando..."    | Texto del spinner                     |
-| emptyState  | React.ReactNode           | undefined        | Componente cuando no hay ítems        |
-| triggerText | string \| React.ReactNode | "EXPLORAR"       | Texto o elemento del botón disparador |
-| triggerIcon | React.ReactNode           | undefined        | Icono que acompaña al texto del botón |
+| menuItems   | MenuItem[]                | defaultMenuItems | Array of menu items                   |
+| loading     | boolean                   | false            | Shows loading state                   |
+| loadingText | string                    | "Loading..."     | Spinner text                          |
+| emptyState  | React.ReactNode           | undefined        | Component when there are no items     |
+| triggerText | string \| React.ReactNode | "EXPLORE"        | Text or element of the trigger button |
+| triggerIcon | React.ReactNode           | undefined        | Icon accompanying the button text     |
 
-### 2. Comportamiento
+### 2. Behavior
 
-| Prop                | Tipo                 | Default | Descripción                       |
-| ------------------- | -------------------- | ------- | --------------------------------- |
-| onItemClick         | (item, path) => void | -       | Callback al hacer clic en un ítem |
-| onHoverItem         | (item, path) => void | -       | Callback al pasar el mouse        |
-| onOpen              | () => void           | -       | Al abrir el menú                  |
-| onClose             | () => void           | -       | Al cerrar el menú                 |
-| maxDepth            | number               | 5       | Profundidad máxima                |
-| openOnHover         | boolean              | true    | Abrir con hover                   |
-| closeOnClickOutside | boolean              | true    | Cerrar al hacer clic fuera        |
-| closeDelay          | number (ms)          | 300     | Retraso para cerrar               |
+| Prop                | Type                 | Default | Description                         |
+| ------------------- | -------------------- | ------- | ----------------------------------- |
+| onItemClick         | (item, path) => void | -       | Callback when clicking an item      |
+| onHoverItem         | (item, path) => void | -       | Callback when hovering over an item |
+| onOpen              | () => void           | -       | When the menu opens                 |
+| onClose             | () => void           | -       | When the menu closes                |
+| maxDepth            | number               | 5       | Maximum depth                       |
+| openOnHover         | boolean              | true    | Open on hover                       |
+| closeOnClickOutside | boolean              | true    | Close when clicking outside         |
+| closeDelay          | number (ms)          | 300     | Delay before closing                |
 
-### 3. Estilos y diseño
+### 3. Styles and Design
 
-| Prop         | Tipo                               | Default  | Descripción            |
-| ------------ | ---------------------------------- | -------- | ---------------------- |
-| sx           | SxProps<Theme>                     | -        | Estilos del contenedor |
-| paperSx      | SxProps<Theme>                     | -        | Estilos del Paper      |
-| itemSx       | SxProps<Theme>                     | -        | Estilos del ítem       |
-| submenuSx    | SxProps<Theme>                     | -        | Estilos del submenú    |
-| density      | compact \| standard \| comfortable | standard | Densidad vertical      |
-| showDividers | boolean                            | false    | Mostrar separadores    |
-| dividerColor | string                             | divider  | Color del divisor      |
+| Prop         | Type                               | Default  | Description      |
+| ------------ | ---------------------------------- | -------- | ---------------- |
+| sx           | SxProps\<Theme\>                   | -        | Container styles |
+| paperSx      | SxProps\<Theme\>                   | -        | Paper styles     |
+| itemSx       | SxProps\<Theme\>                   | -        | Item styles      |
+| submenuSx    | SxProps\<Theme\>                   | -        | Submenu styles   |
+| density      | compact \| standard \| comfortable | standard | Vertical density |
+| showDividers | boolean                            | false    | Show dividers    |
+| dividerColor | string                             | divider  | Divider color    |
 
-### 4. Iconos
+### 4. Icons
 
-| Prop         | Tipo                 | Default         | Descripción        |
-| ------------ | -------------------- | --------------- | ------------------ |
-| expandIcon   | React.ReactNode      | ChevronRight    | Submenú cerrado    |
-| collapseIcon | React.ReactNode      | ArrowDropUpIcon | Submenú abierto    |
-| submenuIcon  | React.ReactNode      | expandIcon      | Icono del submenú  |
-| iconPosition | start \| end \| none | end             | Posición del icono |
+| Prop         | Type                 | Default         | Description    |
+| ------------ | -------------------- | --------------- | -------------- |
+| expandIcon   | React.ReactNode      | ChevronRight    | Closed submenu |
+| collapseIcon | React.ReactNode      | ArrowDropUpIcon | Open submenu   |
+| submenuIcon  | React.ReactNode      | expandIcon      | Submenu icon   |
+| iconPosition | start \| end \| none | end             | Icon position  |
 
-### 5. Comportamiento avanzado
+### 5. Advanced Behavior
 
-| Prop            | Tipo           | Default | Descripción         |
-| --------------- | -------------- | ------- | ------------------- |
-| open            | boolean        | -       | Control externo     |
-| defaultOpen     | boolean        | false   | Estado inicial      |
-| initialDepth    | number         | 0       | Profundidad inicial |
-| autoExpandDepth | number         | 0       | Auto expansión      |
-| scrollIntoView  | boolean        | true    | Scroll por hash     |
-| scrollOffset    | number         | 80      | Offset              |
-| scrollBehavior  | auto \| smooth | smooth  | Tipo de scroll      |
-| disabled        | boolean        | false   | Deshabilitado       |
-| readOnly        | boolean        | false   | Solo lectura        |
+| Prop            | Type           | Default | Description      |
+| --------------- | -------------- | ------- | ---------------- |
+| open            | boolean        | -       | External control |
+| defaultOpen     | boolean        | false   | Initial state    |
+| initialDepth    | number         | 0       | Initial depth    |
+| autoExpandDepth | number         | 0       | Auto expansion   |
+| scrollIntoView  | boolean        | true    | Scroll by hash   |
+| scrollOffset    | number         | 80      | Offset           |
+| scrollBehavior  | auto \| smooth | smooth  | Scroll type      |
+| disabled        | boolean        | false   | Disabled         |
+| readOnly        | boolean        | false   | Read only        |
 
-### 6. Accesibilidad y SEO
+### 6. Accessibility and SEO
 
-| Prop               | Tipo    | Default          | Descripción        |
-| ------------------ | ------- | ---------------- | ------------------ |
-| ariaLabel          | string  | Menú desplegable | aria-label         |
-| ariaLabelledBy     | string  | -                | Etiqueta           |
-| ariaDescribedBy    | string  | -                | Descripción        |
-| role               | string  | menu             | Rol ARIA           |
-| keyboardNavigation | boolean | true             | Navegación teclado |
-| focusOnOpen        | boolean | true             | Foco inicial       |
-| useAnchorTags      | boolean | true             | Usa `<a>`          |
-| rel                | string  | -                | Atributo rel       |
+| Prop               | Type    | Default       | Description         |
+| ------------------ | ------- | ------------- | ------------------- |
+| ariaLabel          | string  | Dropdown menu | aria-label          |
+| ariaLabelledBy     | string  | -             | Label               |
+| ariaDescribedBy    | string  | -             | Description         |
+| role               | string  | menu          | ARIA role           |
+| keyboardNavigation | boolean | true          | Keyboard navigation |
+| focusOnOpen        | boolean | true          | Initial focus       |
+| useAnchorTags      | boolean | true          | Uses `<a>`          |
+| rel                | string  | -             | rel attribute       |
 
-### 7. Internacionalización
+### 7. Internationalization
 
-| Prop         | Tipo                 | Default | Descripción |
+| Prop         | Type                 | Default | Description |
 | ------------ | -------------------- | ------- | ----------- |
-| translations | DropdownTranslations | -       | Textos      |
-| direction    | ltr \| rtl           | ltr     | Dirección   |
+| translations | DropdownTranslations | -       | Texts       |
+| direction    | ltr \| rtl           | ltr     | Direction   |
 
-### 8. Renderizado personalizado
+### 8. Custom Rendering
 
-| Prop          | Tipo                       | Descripción           |
-| ------------- | -------------------------- | --------------------- |
-| renderTrigger | (props) => React.ReactNode | Trigger personalizado |
-| renderItem    | (props) => React.ReactNode | Ítem personalizado    |
-| renderSubmenu | (props) => React.ReactNode | Submenú personalizado |
+| Prop          | Type                       | Description    |
+| ------------- | -------------------------- | -------------- |
+| renderTrigger | (props) => React.ReactNode | Custom trigger |
+| renderItem    | (props) => React.ReactNode | Custom item    |
+| renderSubmenu | (props) => React.ReactNode | Custom submenu |
 
-### 9. Temas y variantes
+### 9. Themes and Variants
 
-| Prop        | Tipo                                                             | Default | Descripción        |
-| ----------- | ---------------------------------------------------------------- | ------- | ------------------ |
-| variant     | default \| minimal \| elevated \| borderless \| dark \| gradient | default | Variante visual    |
-| customTheme | CustomTheme                                                      | -       | Tema personalizado |
-
----
+| Prop        | Type                                                              | Default | Description    |
+| ----------- | ----------------------------------------------------------------- | ------- | -------------- |
+| variant     | default \| minimal \| elevated \| borderless \| dark \| gradient | default | Visual variant |
+| customTheme | CustomTheme                                                       | -       | Custom theme   |
 
 ---
 
-## 🎨 Ejemplos avanzados
+## 🎨 Advanced Examples
 
-### Menú con apertura por click
+### Menu with click-to-open
 
 ```tsx
 <DropdownWithSubmenu
@@ -332,7 +326,7 @@ export const menuItems: MenuItem[] = [
 />
 ```
 
-### Densidad compacta
+### Compact density
 
 ```tsx
 <DropdownWithSubmenu
@@ -342,7 +336,7 @@ export const menuItems: MenuItem[] = [
 />
 ```
 
-### Tema oscuro
+### Dark theme
 
 ```tsx
 <DropdownWithSubmenu
@@ -356,20 +350,20 @@ export const menuItems: MenuItem[] = [
 />
 ```
 
-### Trigger personalizado
+### Custom trigger
 
 ```tsx
 <DropdownWithSubmenu
   menuItems={menuItems}
   renderTrigger={({ isOpen, toggle, ref }) => (
-    <button ref={ref} onClick={toggle} className="mi-boton">
-      {isOpen ? "Cerrar" : "Abrir"} menú
+    <button ref={ref} onClick={toggle} className="my-button">
+      {isOpen ? "Close" : "Open"} menu
     </button>
   )}
 />
 ```
 
-### Enlaces reales para SEO
+### Real links for SEO
 
 ```tsx
 <DropdownWithSubmenu
@@ -381,12 +375,12 @@ export const menuItems: MenuItem[] = [
 
 ---
 
-## ♿ Accesibilidad
+## ♿ Accessibility
 
-- Rol `menu` / `menuitem`
-- Navegación por teclado
-- Atributos ARIA
-- Lectores de pantalla
+- `menu` / `menuitem` roles
+- Keyboard navigation
+- ARIA attributes
+- Screen reader support
 
 ---
 
@@ -407,15 +401,15 @@ import type {
 
 ---
 
-## 🛠️ Desarrollo local
+## 🛠️ Local Development
 
-1.  Clona el repositorio\
-2.  Instala dependencias: `pnpm install`\
-3.  Construye: `pnpm build`\
-4.  Dev: `pnpm dev`
+1. Clone the repository
+2. Install dependencies: `pnpm install`
+3. Build: `pnpm build`
+4. Dev: `pnpm dev`
 
 ---
 
-## 📄 Licencia
+## 📄 License
 
 MIT © BlackyCoder
