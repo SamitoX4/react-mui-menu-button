@@ -1,10 +1,8 @@
 import { defineConfig } from "vitest/config";
-import pluginReact from "@vitejs/plugin-react";
-import "@testing-library/jest-dom/vitest";
-console.log('✅ Setup de testing ejecutado')
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  plugins: [pluginReact() as any], // Necesario para transformar JSX
+  plugins: [react()], // Necesario para transformar JSX
   test: {
     // Entorno de pruebas (jsdom simula el navegador)
     environment: "jsdom",
