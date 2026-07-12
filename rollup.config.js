@@ -24,17 +24,11 @@ export default {
     commonjs(),
     typescript({
       tsconfig: './tsconfig.json',
+      allowImportingTsExtensions: false,
       declaration: true,
       declarationDir: 'dist',
     }),
   ],
-  external: [
-    'react',
-    'react-dom',
-    '@mui/material',
-    '@mui/icons-material',
-    '@emotion/react',
-    '@emotion/styled',
-    'react-router-dom',
-  ],
+  external: (id) =>
+    /^(react|react-dom|@mui\/.*|@emotion\/.*|react-router-dom)(\/.*)?$/.test(id),
 };
